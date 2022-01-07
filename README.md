@@ -1,7 +1,7 @@
 # Direct NFT sell in REACH/Algorand blockchain
 
 This is simple example of selling NFT directly to the Buyer .
-## Backend reach code ;
+## Backend reach code
   You can find the backend code inside backend folder. You can find the detail of the backend [here](https://github.com/knightpr/reach-direct-sell) in this repository.
 
 ## Run server
