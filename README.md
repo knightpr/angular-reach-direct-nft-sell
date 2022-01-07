@@ -8,7 +8,7 @@ This is simple example of selling NFT directly to the Buyer .
 Run `ng serve` for a dev server. Navigate to `http://localhosgt:4200/nft` or click on the link on the home page.
 
 You can simulate the NFT buying and selling by opening two different browsers
-One will ask as Creator, who is become owner at first. 
+One will ask act as a Creator, who is become owner at first. Another will act as a buyer.
 ### Creator/Owner flow
 
 - select as creator
