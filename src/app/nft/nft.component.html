@@ -1,0 +1,81 @@
+<div *ngIf="!acc"> Connecting your browser wallet please wait.....</div>
+<div *ngIf="acc">
+  <div>Your balance is:  {{bal}} </div>
+  <div *ngIf="after">New balance is:  {{after}} </div>
+  <div>Your address is:  {{acc.getAddress()}}</div>
+  <div>Your Network address is:  {{acc.networkAccount.addr}}</div>
+  <div *ngIf="!showWhoAreYou">
+    Who are you ?
+    <a href="#" (click)="deployer()">Deployer(Creator)</a>
+    or
+    <a href="#" (click)="attacher(true)">Attacher(Owner/Buyer)</a>
+  </div>
+  <div *ngIf="showWhoAreYou">
+    Hello <b>{{who}}</b><br/>
+  </div>
+  <div class="nft-detail" *ngIf="showNFTDetail">
+    <div>
+      <div class="label">NFT ID:</div>
+      <div class="value"><input type="text" [(ngModel)]="nftId" value="{{nftId}}"></div>
+    </div>
+    <div>
+      <div class="label">Artist ID:</div>
+      <div class="value"><input type="text" [(ngModel)]="artistId" value="{{artistId}}"></div>
+    </div>
+    <div>
+      <div class="label">CreatedAt ID:</div>
+      <div class="value"><input type="text" [(ngModel)]="createdAt" value="{{createdAt}}"></div>
+    </div>
+    <div>
+      <div class="label">Manager Address:</div>
+      <div class="value"><input type="text" [(ngModel)]="managerAddress" value="{{managerAddress}}"></div>
+    </div>
+    <button *ngIf="showNFTConfirmBox" (click)="setNFTDetail()">Confirm NFT Detail/Create Contract app</button>
+  </div>
+  <div *ngIf="ctcInfo && who !=='Buyer' && ctcInfo">The contract is deployed as {{ctcInfo}}</div>
+  <button *ngIf="ctcInfo && who ==='Creator'"><a (click)="attacher(false)">Become an owner!</a></button>
+  <div *ngIf="who==='Owner' || who==='Buyer'">
+    <div *ngIf="showCtcInfo">
+      Please enter contract detail:<br/>
+      <input placeholder="Please enter contract detail!" type="text" [(ngModel)]="ctcInfo" name="ctcInfo"
+             *ngIf="showCTCInputBox"/>
+      <button (click)="attach()" [disabled]="!ctcInfo">Attach</button>
+    </div>
+    <div>
+      <button type="button" (click)="acceptTandC(false)" value="Accept terms and conditions!"
+              *ngIf="showAcceptTandC && who =='Buyer'" [disabled]="acceptedTandC">Accept terms and conditions of the
+        Buyer!
+      </button>
+      <button type="button" (click)="acceptTandC(true)" value="Accept terms and conditions!"
+              *ngIf="showAcceptTandC && who =='Owner'" [disabled]="acceptedTandC">Accept terms and conditions of the
+        owner!
+      </button>
+
+      <div *ngIf="showPriceBox">
+        Set your NFT selling price <input type="text" [(ngModel)]="priceInput" placeholder="Enter your price"/>
+        <button type="button" (click)="setPrice()"> Confirm price</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="errorMessage" class="error">
+    <pre>{{errorMessage}}</pre>
+  </div>
+  <div *ngIf="showGetAuctionPropMessage && !showNFTDetail" class="info">
+    <pre [innerHTML]="showGetAuctionPropMessage"></pre>
+  </div>
+  <div *ngIf="showAuctionPropMessage" class="info">
+    <pre>{{showAuctionPropMessage}}</pre>
+  </div>
+  <div *ngIf="showOwnerMessage" class="info">
+    <pre>{{showOwnerMessage}}</pre>
+  </div>
+  <div *ngIf="showbuyNftMessage" class="info">
+    <pre>{{showbuyNftMessage}}</pre>
+  </div>
+  <div *ngIf="showInformTimeoutMessage" class="info">
+    <pre>{{showInformTimeoutMessage}}</pre>
+  </div>
+  <div *ngIf="showNoBuyMessage" class="info">
+    <pre>{{showNoBuyMessage}}</pre>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+.error{
+  border: 1px solid red;
+  width: 100%;
+  color: red;
+  padding: 10px;
+  background: #f3e3e6;
+  overflow:scroll;
+}
+.info{
+  border: 1px solid blue;
+  width: 100%;
+  color: blue;
+  padding: 10px;
+  background: lightblue;
+  overflow:scroll;
+}
+.label {
+  width: 10%;
+  display: inline-block;
+}
+.value {
+  width: 50%;
+  display: inline-block;
+}
+.nft-detail input{
+  width: 100%;
+}
+.nft-detail {
+  padding: 10px;
+  background: antiquewhite;
+  border: 1px solid #673ab7;
+}
+button{
+  margin:10px;
+  padding:10px;
+}
